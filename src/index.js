@@ -1,9 +1,9 @@
 const express = require("express");
-const connect = require("./configs/db");
+const connect = require("/configs/db");
 const User = require("./models/user.model.js");
-const userController = require("../src/controllers/user.controller");
+const userController = require("./controllers/user.controller");
 const bookController = require("./controllers/book.controller");
-const commentsController = require("../src/controllers/comments.controller");
+const commentsController = require("./controllers/comments.controller");
 const { body, validationResult } = require("express-validator");
 const { register, login } = require("./controllers/auth.controller");
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use("/user", userController);
 app.use("/book", bookController);
 app.use("/comment", commentsController);
-app.use("/login", login);
+app.post("/login", login);
 app.post(
   "/register",
   body("firstName")
