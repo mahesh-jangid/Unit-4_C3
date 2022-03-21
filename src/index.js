@@ -54,9 +54,7 @@ app.post(
     .withMessage("age can not be empty")
     .custom(async (len) => {
       if (len < 1 || len > 150) {
-        throw new Error(
-          "Length should be of atleast min 3 and max 30 characters"
-        );
+        throw new Error("age should be between 1 to 150");
       }
       return true;
     }),
