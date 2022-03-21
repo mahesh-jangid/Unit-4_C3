@@ -15,7 +15,7 @@ router.get("", async (req, res) => {
 router.post("", async (req, res) => {
   try {
     const book = await Book.create(req.body);
-    let booklikes = await Booklikes.findById(req.body.user_id).lean().exec();
+    let booklikes = await Booklikes.findById(req.body.book_id).lean().exec();
     let count = 0;
     if (booklikes.likes === true) {
       return false;
